@@ -140,7 +140,9 @@ export default function Dashboard() {
                         <elevenlabs-convai
                             key={currentAgentId}
                             agent-id={currentAgentId}
+                            api-key="sk_4cca73c1e8860cc0eff91d3f54fa0b3957ebe94be1e000aa"
                         ></elevenlabs-convai>
+
                     </div>
 
                     <div style={{ marginTop: 'auto' }}>
