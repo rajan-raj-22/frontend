@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'https://bank-voice-agent-backend.onrender.com/api',
+    baseURL: 'https://bank-voice-agent-backend-1.onrender.com/api',
     headers: { 'Content-Type': 'application/json' },
 });
 
