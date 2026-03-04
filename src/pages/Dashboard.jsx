@@ -104,11 +104,22 @@ export default function Dashboard() {
                 </div>
 
                 {/* PROMINENT VOICE AI TESTING SECTION */}
-                <div className="card" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', minHeight: 520, border: '2px solid var(--primary)', background: 'rgba(99, 102, 241, 0.05)', position: 'relative', padding: '40px 20px' }}>
-                    <div style={{ textAlign: 'center', marginBottom: 24 }}>
-                        <div style={{ fontSize: 36, marginBottom: 8 }}>🎙️</div>
-                        <div className="card-title" style={{ fontSize: 22 }}>Live Voice AI Testing</div>
-                        <div style={{ color: 'var(--text-muted)', fontSize: 14, marginBottom: 16 }}>Select agent for testing:</div>
+                <div className="card" style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    minHeight: 500,
+                    border: '2px solid var(--primary)',
+                    background: 'rgba(99, 102, 241, 0.05)',
+                    position: 'relative',
+                    padding: '30px',
+                    textAlign: 'center'
+                }}>
+                    <div style={{ marginBottom: 32 }}>
+                        <div style={{ fontSize: 42, marginBottom: 12 }}>🎙️</div>
+                        <div className="card-title" style={{ fontSize: 24, marginBottom: 8 }}>Live Voice AI Testing</div>
+                        <div style={{ color: 'var(--text-muted)', fontSize: 14, marginBottom: 20 }}>Select an agent to start a live test conversation:</div>
 
                         <div className="pill-tabs" style={{ background: 'var(--bg-body)', padding: 6, borderRadius: 12, display: 'inline-flex' }}>
                             <button className={`pill-tab ${testAgent === 'reminder' ? 'active' : ''}`} onClick={() => setTestAgent('reminder')}>EMI Reminder</button>
@@ -116,16 +127,27 @@ export default function Dashboard() {
                         </div>
                     </div>
 
-                    {/* Moved Up Slightly with negative transform */}
-                    <div style={{ minHeight: 160, display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', overflow: 'visible', transform: 'translateY(-20px)' }}>
-                        <elevenlabs-convai key={currentAgentId} agent-id={currentAgentId}></elevenlabs-convai>
+                    {/* ElevenLabs Widget Container - Cleaned up to avoid clipping */}
+                    <div style={{
+                        width: '100%',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        marginBottom: 32,
+                        minHeight: 120
+                    }}>
+                        <elevenlabs-convai
+                            key={currentAgentId}
+                            agent-id={currentAgentId}
+                        ></elevenlabs-convai>
                     </div>
 
-                    <div style={{ marginTop: 20, textAlign: 'center' }}>
-                        <div style={{ fontSize: 13, color: 'var(--primary-light)', padding: '10px 24px', borderRadius: 20, background: 'rgba(99, 102, 241, 0.1)', fontWeight: 600 }}>
+                    <div style={{ marginTop: 'auto' }}>
+                        <div style={{ fontSize: 13, color: 'var(--primary-light)', padding: '10px 24px', borderRadius: 20, background: 'rgba(99, 102, 241, 0.1)', fontWeight: 600, display: 'inline-block' }}>
                             Active Agent: {testAgent === 'reminder' ? 'EMI Tracking' : 'Marketing Schemes'}
                         </div>
-                        <div style={{ fontSize: 10, color: 'var(--text-dim)', marginTop: 10, fontFamily: 'monospace' }}>ID: {currentAgentId}</div>
+                        <div style={{ fontSize: 10, color: 'var(--text-dim)', marginTop: 12, fontFamily: 'monospace', opacity: 0.6 }}>AGENT_ID: {currentAgentId}</div>
                     </div>
                 </div>
             </div>
